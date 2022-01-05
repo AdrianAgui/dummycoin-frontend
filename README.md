@@ -1,2 +1,2 @@
 # dummycoin-frontend
-Frontal interface for DummyCoin blockchain.
+Frontend app and user interface for DummyCoin blockchain.
