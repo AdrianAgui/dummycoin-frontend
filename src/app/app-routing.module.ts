@@ -1,7 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { BlockchainComponent } from './pages/blockchain/blockchain.component';
+import { MemoryPoolComponent } from './pages/memory-pool/memory-pool.component';
+
+const routes: Routes = [
+  {
+    path: 'blockchain',
+    component: BlockchainComponent
+  },
+  {
+    path: 'memoryPool',
+    component: MemoryPoolComponent
+  },
+  { path: '**', component: BlockchainComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
