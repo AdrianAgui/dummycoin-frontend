@@ -10,7 +10,7 @@ const routes: Routes = [
     component: BlockchainComponent
   },
   {
-    path: 'memoryPool',
+    path: 'memorypool',
     component: MemoryPoolComponent
   },
   { path: '**', component: BlockchainComponent }

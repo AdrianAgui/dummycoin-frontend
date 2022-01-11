@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+  background-color: rgba(254, 255, 213, 0.4);
+}

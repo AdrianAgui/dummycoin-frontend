@@ -1,0 +1,74 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 36px;
+
+  user-select: none;
+
+  .title__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      font-family: 'Cairo', sans-serif;
+      font-weight: 900;
+      font-size: 42px;
+      .dot {
+        color: rgb(249, 194, 80);
+      }
+    }
+
+    .logo {
+      margin-right: 16px;
+      width: 85px;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    margin-right: 220px;
+
+    &__link {
+      cursor: pointer;
+      border: none;
+      background: none;
+      text-decoration: none;
+
+      span {
+        padding-bottom: 10px;
+        letter-spacing: 2px;
+        font-size: 18px;
+        font-family: 'Inconsolata', monospace;
+        font-weight: 600;
+      }
+
+      .hover-underline-animation {
+        position: relative;
+        color: black;
+      }
+
+      .hover-underline-animation:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1.5px;
+        bottom: 0;
+        left: 0;
+        background-color: #000000;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover .hover-underline-animation:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+
+  .login {
+  }
+}

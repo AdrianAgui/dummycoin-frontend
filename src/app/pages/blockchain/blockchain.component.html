@@ -1,4 +1,5 @@
-<div *ngFor="let block of blocks">
-  <h3>Block</h3>
-  <span>{{ block.timestamp }}</span>
+<div class="blockchain-content">
+  <div *ngFor="let block of blocks">
+    <app-block [data]="block"></app-block>
+  </div>
 </div>

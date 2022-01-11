@@ -1,0 +1,22 @@
+.body {
+  height:100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: white;
+  box-shadow: 0 10px 20px rgb(249, 194, 80);
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  width: 85%;
+  margin: 0 auto;
+}
+
+footer {
+  margin-top: auto; 
+  padding: 24px;
+}

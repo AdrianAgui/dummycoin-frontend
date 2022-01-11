@@ -14,8 +14,9 @@ export class BlockchainComponent implements OnInit {
 
   ngOnInit(): void {
     this.blockchainService.getBlocks().subscribe((blocks: Block[]) => {
-      console.log(blocks);
-      this.blocks = blocks;
+      this.blocks = blocks.map((block) => {
+        return { ...block, date: new Date(block.timestamp) };
+      });
     });
   }
 }
