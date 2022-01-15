@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./block-transactions.component.scss']
 })
 export class BlockTransactionsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

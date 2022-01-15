@@ -26,7 +26,7 @@
   </div>
 
   <div class="view">
-    <a class="btn btn-outline-warning btn-lg" routerLink="/memorypool">
+    <a class="btn btn-outline-warning btn-lg" [routerLink]="['/block', data.hash]">
       <span class="hover-underline-animation">View block transactions</span>
     </a>
   </div>
