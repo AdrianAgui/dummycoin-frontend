@@ -1,1 +1,26 @@
-<p>transactions works!</p>
+<div *ngIf="txs.length > 0" class="transactions">
+  <table class="table table-light table-striped">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 10%">ID</th>
+        <th scope="col" style="width: 15%">Date</th>
+        <th scope="col" style="width: 30%">From</th>
+        <th scope="col" style="width: 30%">To</th>
+        <th scope="col" style="width: 15%">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let tx of txs">
+        <ng-container *ngFor="let o of tx.outputs">
+          <tr *ngIf="tx.input.address !== o.address">
+            <th>{{ tx.id }}</th>
+            <td>{{ tx.input.timestamp | date: 'H:mm dd/MM/yyyy' }}</td>
+            <td>{{ tx.input.address }}</td>
+            <td>{{ o.address }}</td>
+            <td>{{ o.amount }}&nbsp;$DUM</td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

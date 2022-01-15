@@ -1,0 +1,12 @@
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+  text-align: center;
+  font-family: Inconsolata, monospace, sans-serif;
+}
+
+.transactions {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
