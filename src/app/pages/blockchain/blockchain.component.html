@@ -1,5 +1,5 @@
 <div class="blockchain-content">
-  <div *ngFor="let block of blocks">
-    <app-block [data]="block"></app-block>
-  </div>
+  <ng-container *ngFor="let block of blocks; index as id">
+    <app-block [id]="id" [data]="block"></app-block>
+  </ng-container>
 </div>

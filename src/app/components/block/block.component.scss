@@ -1,3 +1,46 @@
 .block {
-  max-width: 300px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    
+    height: 450px;
+    width: 500px;
+    margin: 25px;
+    padding: 40px;
+
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .view {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: auto;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    font-family: Inconsolata, sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+
+    & > div {
+      margin-top: 8px;
+    }
+
+    code {
+      background: rgba(156, 156, 156, 0.5);
+      word-wrap: break-word;
+      box-decoration-break: clone;
+      padding: 0.1rem 0.3rem 0.2rem;
+      border-radius: 0.2rem;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { map, Observable, of } from 'rxjs';
-import { Block } from 'src/app/interfaces/block.interface';
+import { Block, BlocksData } from 'src/app/interfaces/block.interface';
 
 const url = 'https://dummycoin.herokuapp.com';
 const path = '/api/v1';
@@ -16,10 +16,10 @@ export class BlockchainServie {
 
   constructor(private apiService: ApiService) {}
 
-  getBlocks() {
-    return this.blocks.length > 0
-      ? this.getFromCache()
-      : this.getFromApi().pipe(map((blocks) => (this.blocks = blocks)));
+  getBlocks(refresh?: boolean): Observable<Block[]> {
+    return this.blocks.length === 0 || refresh
+      ? this.getFromApi().pipe(map((data) => (this.blocks = data.blocks)))
+      : this.getFromCache();
   }
 
   private getFromCache() {
@@ -27,8 +27,8 @@ export class BlockchainServie {
   }
 
   private getFromApi() {
-    return this.apiService.get<Block[]>(getBlocksEndpoint) as Observable<
-      Block[]
-    >;
+    return this.apiService.get<BlocksData>(
+      getBlocksEndpoint
+    ) as Observable<BlocksData>;
   }
 }

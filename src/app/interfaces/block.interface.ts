@@ -1,3 +1,8 @@
+export interface BlocksData {
+  length: number;
+  blocks: Block[];
+}
+
 export interface Block {
   timestamp: Date;
   hash: string;

@@ -1,12 +1,33 @@
-<div class="block">
-  <div class="card mb-3">
-    <div class="card-header">{{ data?.hash }}</div>
-    <div class="card-body">
-      <p class="card-text">Creation date: {{ data?.date | date: 'dd/MM/yyyy'}}</p>
-      <p class="card-text">Difficulty: {{ data?.difficulty }}&nbsp;&nbsp;&nbsp;Nonce: {{ data?.nonce }}</p>
-      <p class="card-text"></p>
-      <p class="card-text">Previous Hash: {{ data?.previousHash ? data.previousHash : 'undefined' }}</p>
-      <p class="card-text">{{ data?.data }}</p>
+<div class="block__container">
+  <div class="title">
+    <span>Block&nbsp;</span>
+    <span *ngIf="id > 0; else genesis">{{ id }}</span>
+    <ng-template #genesis>Genesis</ng-template>
+  </div>
+
+  <div class="block__content">
+    <div>
+      Hash: <code class="hash">{{ data?.hash }}</code>
     </div>
+    <div>
+      🕖 Creation date: {{ data?.date | date: 'H:mm' }} -
+      {{ data?.date | date: 'dd/MM/yyyy' }}
+    </div>
+    <div>
+      Difficulty: {{ data?.difficulty }}&nbsp;&nbsp;~&nbsp;&nbsp; Nonce:
+      {{ data?.nonce }}
+    </div>
+    <div>
+      Previous Hash:
+      <code class="hash">{{
+        data?.previousHash ? data.previousHash : 'undefined'
+      }}</code>
+    </div>
+  </div>
+
+  <div class="view">
+    <a class="btn btn-outline-warning btn-lg" routerLink="/memorypool">
+      <span class="hover-underline-animation">View block transactions</span>
+    </a>
   </div>
 </div>

@@ -7,6 +7,7 @@ import { Block } from 'src/app/interfaces/block.interface';
   styleUrls: ['./block.component.scss']
 })
 export class BlockComponent implements OnInit {
+  @Input() id!: number;
   @Input() data!: Block;
 
   ngOnInit(): void {
