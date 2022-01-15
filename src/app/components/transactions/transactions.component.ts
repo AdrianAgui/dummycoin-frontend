@@ -17,14 +17,16 @@ export class TransactionsComponent implements OnInit {
 
   hash: string;
   block: Block;
-  txs: Tx[];
+  txs: Tx[] = [];
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.hash = params.get('hash') ?? '';
       if (this.hash) {
-        this.block = this.blockchain.getBlockByHash(this.hash);
-        this.txs = typeof this.block.data === 'string' ? [] : this.block.data;
+        this.blockchain.getBlocks().subscribe(() => {
+          this.block = this.blockchain.getBlockByHash(this.hash);
+          this.txs = typeof this.block.data === 'string' ? [] : this.block.data;
+        });
       } else {
         this.blockchain.getTxMemoryPool().subscribe((txs) => (this.txs = txs));
       }
