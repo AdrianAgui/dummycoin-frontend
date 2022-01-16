@@ -20,7 +20,7 @@ export class BlockchainServie {
   constructor(private apiService: ApiService) {}
 
   getBlockByHash(hash: string): Block {
-    return this.blocks.find((b) => b.hash === hash) as Block;
+    return this.blocks.find((block) => block.hash === hash) as Block;
   }
 
   getBlocks(): Observable<Block[]> {
