@@ -1,0 +1,57 @@
+<div
+  class="modal fade"
+  id="txModal"
+  tabindex="-1"
+  aria-labelledby="txModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Transaction</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form name="txFprm">
+          <div class="mb-3">
+            <label for="recipient" class="col-form-label">Recipient:</label>
+            <input
+              id="recipient"
+              class="form-control"
+              type="text"
+              minlength="130"
+              maxlength="130"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="col-form-label">Amount:</label>
+            <input
+              id="amount"
+              class="form-control"
+              type="number"
+              min="0.01"
+              step="0.01"
+              required
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          (click)="createTx()"
+          type="button"
+          class="btn btn-warning"
+          data-bs-dismiss="modal"
+        >
+          Send money
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

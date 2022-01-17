@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { map, Observable, of } from 'rxjs';
 import { Block, BlocksData } from 'src/app/interfaces/block.interface';
-import { Tx, TxData } from 'src/app/interfaces/tx.interface';
+import { PostTx, Tx, TxData } from 'src/app/interfaces/tx.interface';
 
 const url = 'https://dummycoin.herokuapp.com';
 const path = '/api/v1';
 
 const getBlocksEndpoint = `${url}${path}/blocks`;
 const getTxEndpoint = `${url}${path}/transactions`;
+const postTxEndpoint = `${url}${path}/transaction`;
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,10 @@ export class BlockchainServie {
       : this.getTxsFromCache();
   }
 
+  createTx(tx: PostTx): Observable<any> {
+    return this.postTx(tx);
+  }
+
   private getBlocksFromCache() {
     return of(this.blocks);
   }
@@ -51,5 +56,9 @@ export class BlockchainServie {
 
   private getTxsFromApi() {
     return this.apiService.get<TxData>(getTxEndpoint) as Observable<TxData>;
+  }
+
+  private postTx(txBody: PostTx) {
+    return this.apiService.post<any>(postTxEndpoint, txBody) as Observable<any>;
   }
 }

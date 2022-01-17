@@ -7,9 +7,11 @@ export interface Tx {
   id: string;
   input: Input;
   outputs: Output[];
-  recipientAddress?: string;
-  totalAmount?: number;
-  fee?: number;
+}
+
+export interface PostTx {
+  recipient: string;
+  amount: number;
 }
 
 interface Input {

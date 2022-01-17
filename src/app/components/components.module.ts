@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalsModule } from './../modals/modals/modals.module';
+
 import { HeaderComponent } from './header/header.component';
 import { BlockComponent } from './block/block.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,7 +16,13 @@ import { TransactionsComponent } from './transactions/transactions.component';
     BlockComponent,
     TransactionsComponent
   ],
-  imports: [CommonModule, RouterModule, FontAwesomeModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FontAwesomeModule,
+    RouterModule,
+    ModalsModule
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,

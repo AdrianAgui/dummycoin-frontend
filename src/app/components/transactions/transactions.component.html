@@ -1,9 +1,16 @@
-<div *ngIf="txs.length > 0" class="transactions">
-  <div *ngIf="!hash" class="title">
-    Pending Transactions:
+<div class="transactions">
+  <div *ngIf="!hash" class="d-flex flex-column">
+    <button
+      class="btn btn-warning create-tx shadow"
+      data-bs-toggle="modal"
+      data-bs-target="#txModal"
+    >
+      Send $DUM Tokens
+    </button>
+    <div class="title">Transactions:</div>
   </div>
 
-  <table class="table table-light table-striped">
+  <table *ngIf="txs.length > 0" class="table table-light table-striped">
     <thead>
       <tr>
         <th scope="col" style="width: 10%">ID</th>
@@ -28,3 +35,5 @@
     </tbody>
   </table>
 </div>
+
+<app-tx-modal></app-tx-modal>
