@@ -3,3 +3,28 @@
   grid-template-columns: repeat(3, 1fr);
   margin-top: 64px;
 }
+
+.pickaxe {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    height: 450px;
+    width: 500px;
+    margin: 25px;
+    padding: 40px;
+  }
+
+  &-image {
+    width: 125px;
+  }
+  
+  &-text {
+    font-size: 24px;
+    font-weight: 700;
+    transform: rotate(-15deg);
+  }
+}

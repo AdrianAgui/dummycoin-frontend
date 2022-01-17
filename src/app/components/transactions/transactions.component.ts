@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Block } from 'src/app/interfaces/block.interface';
 import { Tx } from 'src/app/interfaces/tx.interface';
-import { BlockchainServie } from './../../services/blockchain/blockchain.service';
+import { BlockchainService } from './../../services/blockchain/blockchain.service';
 
 @Component({
   selector: 'app-transactions',
@@ -12,7 +12,7 @@ import { BlockchainServie } from './../../services/blockchain/blockchain.service
 export class TransactionsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private blockchain: BlockchainServie
+    private blockchain: BlockchainService
   ) {}
 
   hash: string;

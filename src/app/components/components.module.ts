@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalsModule } from './../modals/modals/modals.module';
+import { ModalsModule } from '../modals/modals.module';
 
 import { HeaderComponent } from './header/header.component';
 import { BlockComponent } from './block/block.component';

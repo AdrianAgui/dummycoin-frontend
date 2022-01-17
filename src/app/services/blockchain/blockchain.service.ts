@@ -9,12 +9,13 @@ const path = '/api/v1';
 
 const getBlocksEndpoint = `${url}${path}/blocks`;
 const getTxEndpoint = `${url}${path}/transactions`;
+const mineBlockEndpoint = `${url}${path}/mine/transactions`;
 const postTxEndpoint = `${url}${path}/transaction`;
 
 @Injectable({
   providedIn: 'root'
 })
-export class BlockchainServie {
+export class BlockchainService {
   private blocks: Block[] = [];
   private txs: Tx[] = [];
 
@@ -38,6 +39,10 @@ export class BlockchainServie {
 
   createTx(tx: PostTx): Observable<any> {
     return this.postTx(tx);
+  }
+
+  mineBlock() {
+    return this.apiService.get<any>(mineBlockEndpoint) as Observable<any>;
   }
 
   private getBlocksFromCache() {

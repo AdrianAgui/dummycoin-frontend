@@ -10,7 +10,7 @@
     <div class="title">Transactions:</div>
   </div>
 
-  <table *ngIf="txs.length > 0" class="table table-light table-striped">
+  <table *ngIf="txs.length > 0; else empty" class="table table-light table-striped">
     <thead>
       <tr>
         <th scope="col" style="width: 10%">ID</th>
@@ -34,6 +34,10 @@
       </ng-container>
     </tbody>
   </table>
+
+  <ng-template #empty>
+    <h4>Empty</h4>
+  </ng-template>
 </div>
 
 <app-tx-modal></app-tx-modal>
