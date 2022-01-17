@@ -16,5 +16,18 @@
     </a>
   </section>
 
-  <section class="login">login section</section>
+  <section class="login">
+
+    <ng-container *ngIf="logged; else unlogged">
+      LOGGED
+    </ng-container>
+
+    <ng-template #unlogged>
+      NO LOGGED
+    </ng-template>
+
+    <fa-icon [icon]="faWallet"></fa-icon>
+
+  </section>
+
 </div>

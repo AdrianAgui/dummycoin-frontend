@@ -2,13 +2,11 @@
   <ng-container *ngFor="let block of blocks; index as id">
     <app-block [id]="id" [data]="block"></app-block>
   </ng-container>
-  
-  <ng-container>
-    <div class="pickaxe-container" (click)="mine()">
-      <picture>
-        <img class="pickaxe-image" src="assets/img/pickaxe.png" alt="mine" />
-      </picture>
-      <span class="pickaxe-text">Mine Next Block</span>
-    </div>
-  </ng-container>
+
+  <div class="pickaxe-container" (click)="mine()">
+    <picture>
+      <img class="pickaxe-image" src="assets/img/pickaxe.png" alt="mine" />
+    </picture>
+    <span class="pickaxe-text">Mine Next Block</span>
+  </div>
 </div>
