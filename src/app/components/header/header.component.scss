@@ -4,8 +4,6 @@
   align-items: center;
   padding: 24px 36px;
 
-  user-select: none;
-
   .title__container {
     display: flex;
     justify-content: center;
@@ -16,7 +14,7 @@
       font-family: 'Cairo', sans-serif;
       font-weight: 900;
       font-size: 42px;
-      .dot {
+      .semicolon {
         color: rgb(249, 194, 80);
       }
     }
@@ -71,5 +69,43 @@
   }
 
   .login {
+    display: flex;
+    align-items: center;
+    cursor: default;
+
+    &__button {
+      box-shadow: 3px 3px 15px rgb(249, 194, 80);
+    }
+
+    &__wallet-icon {
+      font-size: 28px;
+      margin-left: 24px;
+    }
+
+    .tooltip-address {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip-address .tooltiptext {
+      visibility: hidden;
+      width: 1100px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      cursor: text;
+
+      /* Position the tooltip */
+      position: absolute;
+      top: 30px;
+      right: 0;
+      z-index: 1;
+    }
+
+    .tooltip-address:hover .tooltiptext {
+      visibility: visible;
+    }
   }
 }

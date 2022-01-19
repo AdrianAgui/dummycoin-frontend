@@ -3,7 +3,7 @@
     <picture>
       <img class="logo" src="assets/img/logo.png" alt="logo" />
     </picture>
-    <span class="title">Dummy Coin<span class="dot">;</span></span>
+    <span class="title">Dummy Coin<span class="semicolon">;</span></span>
   </section>
 
   <section class="navbar">
@@ -17,17 +17,22 @@
   </section>
 
   <section class="login">
-
     <ng-container *ngIf="logged; else unlogged">
-      LOGGED
+      <div class="d-flex tooltip-address">
+        <div class="d-flex fs-5 me-2" (click)="clipboardAddressCopy()">
+          <fa-icon [icon]="faCopy" style="cursor: pointer;"></fa-icon>
+        </div>
+        <span class="me-3 fw-bold fs-5">{{ visualAddress }}</span>
+        <span class="tooltiptext">{{ address }}</span>
+      </div>
+      <div class="fs-5 ms-3" (click)="logout()">
+        <fa-icon [icon]="faLogOut" style="cursor: pointer;"></fa-icon>
+      </div>
     </ng-container>
 
     <ng-template #unlogged>
-      NO LOGGED
+      <button class="login__button btn btn-outline-warning me-3 text-dark fw-bold" (click)="login()">Log In</button>
+      <button class="login__button btn btn-outline-warning me-3 text-dark fw-bold" (click)="createWallet()">Create Wallet</button>
     </ng-template>
-
-    <fa-icon [icon]="faWallet"></fa-icon>
-
   </section>
-
 </div>

@@ -10,6 +10,7 @@ export interface Tx {
 }
 
 export interface PostTx {
+  sender: string;
   recipient: string;
   amount: number;
 }

@@ -31,8 +31,8 @@ export class BlockchainService {
       : this.getBlocksFromCache();
   }
 
-  getTxMemoryPool(): Observable<Tx[]> {
-    return this.txs.length === 0
+  getTxMemoryPool(refresh?: boolean): Observable<Tx[]> {
+    return this.txs.length === 0 || refresh
       ? this.getTxsFromApi().pipe(map((data) => (this.txs = data.txs)))
       : this.getTxsFromCache();
   }

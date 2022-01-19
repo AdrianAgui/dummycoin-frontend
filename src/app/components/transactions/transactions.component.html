@@ -1,16 +1,21 @@
 <div class="transactions">
-  <div *ngIf="!hash" class="d-flex flex-column">
+  <div *ngIf="!hash" class="d-flex justify-content-between align-items-center">
+    <div class="title">Transactions:</div>
+
     <button
+      *ngIf="logged"
       class="btn btn-warning create-tx shadow"
       data-bs-toggle="modal"
       data-bs-target="#txModal"
     >
       Send $DUM Tokens
     </button>
-    <div class="title">Transactions:</div>
   </div>
 
-  <table *ngIf="txs.length > 0; else empty" class="table table-light table-striped">
+  <table
+    *ngIf="txs.length > 0; else empty"
+    class="table table-light table-striped"
+  >
     <thead>
       <tr>
         <th scope="col" style="width: 10%">ID</th>

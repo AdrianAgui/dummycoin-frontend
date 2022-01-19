@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Block } from 'src/app/interfaces/block.interface';
 import { Tx } from 'src/app/interfaces/tx.interface';
 import { BlockchainService } from './../../services/blockchain/blockchain.service';
+import { WalletService } from './../../services/wallet/wallet.service';
 
 @Component({
   selector: 'app-transactions',
@@ -12,9 +13,11 @@ import { BlockchainService } from './../../services/blockchain/blockchain.servic
 export class TransactionsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private blockchain: BlockchainService
+    private blockchain: BlockchainService,
+    private wallet: WalletService
   ) {}
 
+  logged = false;
   hash: string;
   block: Block;
   txs: Tx[] = [];
@@ -28,6 +31,10 @@ export class TransactionsComponent implements OnInit {
           this.txs = typeof this.block.data === 'string' ? [] : this.block.data;
         });
       } else {
+        this.logged = this.wallet.$logged.value;
+        this.wallet.$logged.subscribe((isLogged) => (this.logged = isLogged));
+
+        // When trasnaction new is done, refresh txs array
         this.blockchain.getTxMemoryPool().subscribe((txs) => (this.txs = txs));
       }
     });

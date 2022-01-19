@@ -1,20 +1,3 @@
-.create-tx {
-  width: fit-content;
-  align-self: center;
-  font-size: 26px;
-  font-weight: 700;
-  padding: 16px;
-  margin-bottom: 48px;
-  font-family: 'Cairo'
-}
-
-table {
-  table-layout: fixed;
-  word-wrap: break-word;
-  text-align: center;
-  font-family: Inconsolata, monospace, sans-serif;
-}
-
 .transactions {
   display: flex;
   flex-direction: column;
@@ -26,4 +9,24 @@ table {
     font-weight: 700;
     margin-bottom: 32px;
   }
+
+  .create-tx {
+    width: fit-content;
+    align-self: center;
+    font-size: 26px;
+    font-weight: 700;
+    padding: 16px;
+    margin-bottom: 48px;
+    font-family: 'Cairo'
+  }
+
+  table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    text-align: center;
+    font-family: Inconsolata, monospace, sans-serif;
+  }
 }
+
+
+
