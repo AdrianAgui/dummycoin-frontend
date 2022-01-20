@@ -34,9 +34,15 @@ export class TransactionsComponent implements OnInit {
         this.logged = this.wallet.$logged.value;
         this.wallet.$logged.subscribe((isLogged) => (this.logged = isLogged));
 
-        // When trasnaction new is done, refresh txs array
-        this.blockchain.getTxMemoryPool().subscribe((txs) => (this.txs = txs));
+        this.refreshTxs(false);
+        this.blockchain.refreshTxs$.subscribe(() => this.refreshTxs(true));
       }
     });
+  }
+
+  private refreshTxs(refresh: boolean) {
+    this.blockchain
+      .getTxMemoryPool(refresh)
+      .subscribe((txs) => (this.txs = txs));
   }
 }

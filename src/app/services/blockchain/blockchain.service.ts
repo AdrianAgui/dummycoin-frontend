@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable, of, Subject } from 'rxjs';
 import { Block, BlocksData } from 'src/app/interfaces/block.interface';
 import { PostTx, Tx, TxData } from 'src/app/interfaces/tx.interface';
 
@@ -19,14 +19,17 @@ export class BlockchainService {
   private blocks: Block[] = [];
   private txs: Tx[] = [];
 
+  refreshBlocks$ = new Subject();
+  refreshTxs$ = new Subject();
+
   constructor(private apiService: ApiService) {}
 
   getBlockByHash(hash: string): Block {
     return this.blocks.find((block) => block.hash === hash) as Block;
   }
 
-  getBlocks(): Observable<Block[]> {
-    return this.blocks.length === 0
+  getBlocks(refresh?: boolean): Observable<Block[]> {
+    return this.blocks.length === 0 || refresh
       ? this.getBlocksFromApi().pipe(map((data) => (this.blocks = data.blocks)))
       : this.getBlocksFromCache();
   }
@@ -43,6 +46,10 @@ export class BlockchainService {
 
   mineBlock() {
     return this.apiService.get<any>(mineBlockEndpoint) as Observable<any>;
+  }
+
+  cleanTxs() {
+    this.txs = [];
   }
 
   private getBlocksFromCache() {

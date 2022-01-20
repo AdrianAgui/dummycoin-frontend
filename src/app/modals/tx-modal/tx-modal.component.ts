@@ -30,7 +30,7 @@ export class TxModalComponent {
           amount: amount
         } as PostTx)
         .subscribe(() => {
-          this.blockchain.getTxMemoryPool(true).subscribe();
+          this.blockchain.refreshTxs$.next(true);
           this.toastr.success(
             `You send ${amount} $DUM tokens`,
             'Transaction successful'
@@ -38,7 +38,7 @@ export class TxModalComponent {
         });
     } else {
       this.toastr.error(
-        `The addres must contain 130 characters and the amount must be greater than 0`,
+        `The address must contain 130 characters and the amount must be greater than 0`,
         'Error'
       );
     }

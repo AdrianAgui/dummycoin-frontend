@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   logged = false;
   address: string;
   visualAddress: string;
+  balance: number;
 
   faCopy = faCopy;
   faLogOut = faSignOutAlt;
@@ -30,6 +31,7 @@ export class HeaderComponent implements OnInit {
       this.logged = isLogged;
       if (isLogged) {
         this.address = this.wallet.getAddress();
+        this.balance = this.wallet.getBalance();
         this.visualAddress =
           this.address.substring(0, 6) +
           '...' +
@@ -37,10 +39,10 @@ export class HeaderComponent implements OnInit {
         this.initBootstrapTooltips();
       }
     });
-  }
 
-  login() {
-    // abre la modal para introducir un address y llamar a getWallet
+    this.wallet.$updateBalance.subscribe(
+      (currentBalance) => (this.balance = currentBalance)
+    );
   }
 
   logout() {
@@ -49,7 +51,6 @@ export class HeaderComponent implements OnInit {
 
   createWallet() {
     this.wallet.createWallet().subscribe((wallet) => {
-      console.log('new wallet', wallet);
       this.wallet.login(wallet.publicKey).subscribe();
     });
   }

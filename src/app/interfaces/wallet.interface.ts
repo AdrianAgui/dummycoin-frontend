@@ -1,4 +1,4 @@
 export interface Wallet {
   key: string;
-  balance: number;
+  currentBalance: number;
 }

@@ -10,6 +10,7 @@ import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
+import { ModalsModule } from './modals/modals.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,17 +18,17 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FontAwesomeModule,
+    AppRoutingModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',
       preventDuplicates: true
     }),
-    AppRoutingModule,
-    HttpClientModule,
-    FontAwesomeModule,
     PagesModule,
     ComponentsModule,
-    FontAwesomeModule
+    ModalsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
