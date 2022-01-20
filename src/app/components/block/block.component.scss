@@ -12,6 +12,12 @@
     border-radius: 20px;
     box-shadow: 0 0 20px 8px #d0d0d0;
 
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      margin: 0;
+      margin-top: 32px;
+    }
+
     .title {
       font-size: 24px;
       font-weight: 700;
@@ -30,6 +36,10 @@
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 18px;
     word-wrap: break-word;
+
+    @media only screen and (max-width: 768px) {
+      width: 270px;
+    }
 
     & > div {
       margin-top: 8px;

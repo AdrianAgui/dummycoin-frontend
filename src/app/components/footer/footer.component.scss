@@ -14,6 +14,10 @@
     display: flex;
     flex-wrap: wrap;
 
+    @media only screen and (max-width: 768px) {
+      flex-wrap: nowrap;
+    }
+
     .circle {
       &-icon {
         font-size: 2.5rem;

@@ -4,6 +4,11 @@
   align-items: center;
   padding: 24px 36px;
 
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 24px 16px;
+  }
+
   .title__container {
     display: flex;
     justify-content: center;
@@ -28,6 +33,10 @@
   .navbar {
     display: flex;
     margin-right: 220px;
+
+    @media only screen and (max-width: 768px) {
+      margin: 24px 0 24px 0;
+    }
 
     &__link {
       cursor: pointer;
@@ -78,6 +87,11 @@
     }
 
     .wallet {
+      @media only screen and (max-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
       &__address {
         position: relative;
@@ -110,11 +124,11 @@
         font-size: 24px;
         font-weight: bold;
         font-family: 'Cairo', sans-serif;
+        @media only screen and (max-width: 768px) {
+          margin-left: 0;
+          margin-right: 24px;
+        }
       }
     }
-
-
-
-
   }
 }
