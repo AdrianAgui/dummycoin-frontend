@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { Wallet } from 'src/app/interfaces/wallet.interface';
 import { ApiService } from './../api/api.service';
 
-const url = 'https://dummycoin.herokuapp.com';
+const url = 'https://dummycoin-backend.vercel.app';
 const path = '/api/v1';
 
 const getWallet = `${url}${path}/wallet`;
