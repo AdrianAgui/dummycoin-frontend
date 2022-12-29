@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../api/api.service';
-import { map, Observable, of, Subject } from 'rxjs';
+import { Observable, Subject, map, of } from 'rxjs';
 import { Block, BlocksData } from 'src/app/interfaces/block.interface';
 import { PostTx, Tx, TxData } from 'src/app/interfaces/tx.interface';
+import { ApiService } from '../api/api.service';
 
-const url = 'https://dummycoin.herokuapp.com';
+const url = 'https://dummycoin-backend.vercel.app';
 const path = '/api/v1';
 
 const getBlocksEndpoint = `${url}${path}/blocks`;
